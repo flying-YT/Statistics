@@ -20,6 +20,10 @@ namespace Statistics
 
         public double DeviationValueCalculation( double x )
         {
+            if(StandardDeviation == 0)
+            {
+                StandardDeviationCalculation();
+            }
             return ((x - Average)/StandardDeviation*10+50);
         }
 
