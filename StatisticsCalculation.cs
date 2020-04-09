@@ -3,7 +3,7 @@ namespace Statistics
 {
     public class StatisticsCalculation
     {
-        public double[] dataArray;
+        private double[] dataArray;
         public double Sum { set; get; }
         public double Average { set; get; }
         public double Dispersion { set; get; }
@@ -93,6 +93,13 @@ namespace Statistics
             Average = 0;
             Dispersion = 0;
             StandardDeviation = 0;
+        }
+
+        public void SetDataArray( double[] x )
+        {
+            ResetData();
+            dataArray = x;
+            Array.Sort(dataArray);
         }
 
         public void StandardDeviationCalculation()
