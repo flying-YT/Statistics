@@ -124,6 +124,88 @@ namespace Statistics
             return z / n;
         }
 
+        public static double FirstQuartile( double[] x )
+        {
+            int n = x.Length;
+            double[] y;
+            if( n%2 == 0 )
+            {
+                y = new double[x.Length/2];
+            }
+            else
+            {
+                y = new double[(x.Length-1)/2];
+            }
+            for (int i = 0; i < y.Length; i++)
+            {
+                y[i] = x[i];
+            }
+            return Median( y );
+        }
+
+        public static double FirstQuartile( int[] x )
+        {
+            int n = x.Length;
+            int[] y;
+            if( n%2 == 0 )
+            {
+                y = new int[x.Length/2];
+            }
+            else
+            {
+                y = new int[(x.Length - 1) / 2];
+            }
+            for(int i=0;i<y.Length;i++)
+            {
+                y[i] = x[i];
+            }
+            return Median( y );
+        }
+
+        public static double ThirdQuartile( double[] x )
+        {
+            int n = x.Length;
+            double[] y;
+            if( n%2 == 0 )
+            {
+                y = new double[x.Length/2];
+            }
+            else
+            {
+                y = new double[(x.Length-1)/2];
+            }
+            int m = x.Length - y.Length;
+            int count = 0;
+            for(int i=m;i<y.Length;i++)
+            {
+                y[count] = x[i];
+                count++;
+            }
+            return Median( y );
+        }
+
+        public static double ThirdQuartile( int[] x )
+        {
+            int n = x.Length;
+            int[] y;
+            if( n%2 == 0 )
+            {
+                y = new int[x.Length/2];
+            }
+            else
+            {
+                y = new int[(x.Length - 1) / 2];
+            }
+            int m = x.Length - y.Length;
+            int count = 0;
+            for(int i=m;i<x.Length;i++)
+            {
+                y[count] = x[i];
+                count++;
+            }
+            return Median( y );
+        }
+
         private static bool JudgeAscendingOrder( double[] x )
         {
             bool b = true;
